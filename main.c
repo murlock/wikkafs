@@ -167,11 +167,11 @@ int main(int argc, char *argv[])
 		char *tmp = strdup( opt_env );
 		char **env_argv = malloc( sizeof(char*) );
 		int env_argc = 1;
-		env_argv[0] = "Toto";
+		env_argv[0] = strdup( argv[0] );
 
 		char *cur_ptr = strtok( tmp, " " );	
 		while ( cur_ptr ) {
-			printf(" env[%d] = %s\n", env_argc, cur_ptr );
+		    //	printf(" env[%d] = %s\n", env_argc, cur_ptr );
 			env_argc++;
 			env_argv = realloc( env_argv, sizeof(char*) * env_argc );
 			env_argv[ env_argc - 1 ] = cur_ptr;

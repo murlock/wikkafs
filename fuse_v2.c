@@ -441,12 +441,12 @@ int start_fuse_v2() {
 	fuse_argv = realloc( fuse_argv, sizeof(char*) * (fuse_argc+1)  );
 	fuse_argv[ fuse_argc++ ] = fuse_mountpoint;
 
-	//if ( fuse_debug ) {
-	int i=0;
-	for( i=0; i<fuse_argc; i++ ) {
-		printf("fuse_argv[ %d ] = '%s'\n", i, fuse_argv[ i ] );
+	if ( fuse_debug ) {
+        int i=0;
+        for( i=0; i<fuse_argc; i++ ) {
+            printf("fuse_argv[ %d ] = '%s'\n", i, fuse_argv[ i ] );
+        }
 	}
-	//}
 
 
 	int r = fuse_main( fuse_argc , fuse_argv, &wikka_oper_v2, NULL);

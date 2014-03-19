@@ -10,6 +10,7 @@ MYSQL_LDFLAGS=-lmysqlclient -rdynamic
 CC?=gcc
 
 
+VERSION := $(shell git describe --dirty --always)
 CFLAGS+=-DMY_DEBUG -Wall -g -Wformat -Wextra
 
 all: check wikkafs
